@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'active-pin': activePin === 'pin1' }" class="pin-start">
+  <div :class="{ 'active-pin': activePin === 'pin1' }" class="pin-start pin1">
     <app-pin-popup
       :title="`Начать`"
       :dscr="`Нажмите на кнопку «Старт», чтобы начать игру`"
@@ -11,10 +11,9 @@
       viewBox="0 0 358 365"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      @click="changeShow"
     >
-      <g class="additionals">
-        <g class="waves">
+      <g class="additionals" :class="{ hovered: hovered }">
+        <g class="animations">
           <transition name="pulse">
             <circle
               class="circle circle1"
@@ -22,19 +21,18 @@
               cy="50%"
               r="85px"
               v-if="show"
+            ></circle>
+          </transition>
+          <transition name="pulse">
+            <circle
+              class="circle circle2"
+              cx="50%"
+              cy="50%"
+              r="85px"
+              v-if="show"
               style="animation-delay: 1s"
             ></circle>
           </transition>
-          <!-- <transition name="pulse">
-          <circle
-            class="circle circle2"
-            cx="50%"
-            cy="50%"
-            r="85px"
-            v-if="show"
-            style="animation-delay: 1.2s"
-          ></circle>
-        </transition> -->
           <transition name="pulse">
             <circle
               class="circle circle3"
@@ -42,19 +40,19 @@
               cy="50%"
               r="85px"
               v-if="show"
-              style="animation-delay: 1.4s"
+              style="animation-delay: 2s"
             ></circle>
           </transition>
-          <!-- <transition name="pulse">
-          <circle
-            class="circle circle4"
-            cx="50%"
-            cy="50%"
-            r="85px"
-            v-if="show"
-            style="animation-delay: 1.6s"
-          ></circle>
-        </transition> -->
+          <transition name="pulse">
+            <circle
+              class="circle circle4"
+              cx="50%"
+              cy="50%"
+              r="85px"
+              v-if="show"
+              style="animation-delay: 3s"
+            ></circle>
+          </transition>
           <transition name="pulse">
             <circle
               class="circle circle5"
@@ -62,38 +60,10 @@
               cy="50%"
               r="85px"
               v-if="show"
-              style="animation-delay: 1.8s"
+              style="animation-delay: 4s"
             ></circle>
           </transition>
-          <!-- <transition name="pulse">
-          <circle
-            class="circle circle6"
-            cx="50%"
-            cy="50%"
-            r="85px"
-            v-if="show"
-            style="animation-delay: 2s"
-          ></circle>
-        </transition> -->
         </g>
-
-        <!-- <path
-        d="M177.756 157.744C190.633 157.744 202.753 160.614 211.885 165.822C221.192 171.131 226.317 178.25 226.317 185.867C226.317 193.484 221.192 200.603 211.885 205.914C202.753 211.123 190.633 213.992 177.756 213.992C164.88 213.992 152.759 211.123 143.627 205.914C134.321 200.605 129.196 193.486 129.196 185.867C129.196 178.248 134.321 171.131 143.627 165.822C152.759 160.614 164.88 157.744 177.756 157.744ZM177.756 212.022C190.297 212.022 202.069 209.245 210.909 204.202C219.575 199.258 224.346 192.748 224.346 185.867C224.346 178.988 219.575 172.476 210.909 167.532C202.069 162.489 190.297 159.712 177.756 159.712C165.218 159.712 153.444 162.489 144.604 167.532C135.938 172.476 131.166 178.986 131.166 185.867C131.166 192.748 135.938 199.258 144.604 204.202C153.444 209.245 165.218 212.022 177.756 212.022Z"
-        fill="#05FF00"
-      ></path> -->
-        <!-- <path
-        d="M177.756 152.014C193.447 152.014 208.205 155.504 219.317 161.842C230.523 168.234 236.695 176.766 236.695 185.867C236.695 194.968 230.523 203.501 219.317 209.894C208.207 216.232 193.447 219.722 177.756 219.722C162.066 219.722 147.307 216.232 136.198 209.894C124.992 203.501 118.82 194.968 118.82 185.867C118.82 176.766 124.992 168.232 136.198 161.842C147.307 155.504 162.066 152.014 177.756 152.014ZM177.756 218.836C209.853 218.836 235.964 204.047 235.964 185.869C235.964 167.691 209.851 152.902 177.756 152.902C145.662 152.902 119.549 167.689 119.549 185.867C119.549 204.047 145.659 218.836 177.756 218.836Z"
-        fill="#05FF00"
-      ></path> -->
-        <!-- <path
-        d="M177.757 145.733C196.496 145.733 214.117 149.897 227.373 157.459C240.661 165.038 247.979 175.126 247.979 185.867C247.979 196.607 240.661 206.695 227.373 214.274C214.117 221.836 196.496 226 177.757 226C159.018 226 141.397 221.836 128.141 214.274C114.853 206.695 107.535 196.607 107.535 185.867C107.535 175.126 114.853 165.038 128.141 157.459C141.397 149.897 159.018 145.733 177.757 145.733ZM177.757 225.644C216.28 225.644 247.621 207.8 247.621 185.869C247.621 163.936 216.28 146.093 177.757 146.093C139.234 146.093 107.893 163.936 107.893 185.867C107.893 207.8 139.234 225.644 177.757 225.644Z"
-        fill="#05FF00"
-      ></path> -->
-        <!-- <path
-        opacity="0.3"
-        d="M203.18 170.31C217.445 178.541 217.445 191.896 203.18 200.127C188.917 208.365 165.795 208.365 151.535 200.131C137.271 191.895 137.271 178.545 151.535 170.31C165.795 162.073 188.92 162.073 203.18 170.31Z"
-        fill="#4CF55D"
-      ></path> -->
         <path
           opacity="0.5"
           d="M201.475 171.292C214.794 178.981 214.794 191.452 201.475 199.141C188.158 206.831 166.56 206.831 153.24 199.141C139.923 191.452 139.923 178.984 153.24 171.294C166.56 163.603 188.157 163.603 201.475 171.292Z"
@@ -461,6 +431,17 @@
           </g>
         </g>
       </g>
+      <rect
+        class="pin-rect"
+        x="127"
+        y="0"
+        width="100"
+        height="210"
+        @click="changeShow"
+        @mouseover="hovered = true"
+        @mouseleave="hovered = false"
+        fill="transparent"
+      />
       <defs>
         <linearGradient
           id="paint1"
@@ -1103,6 +1084,7 @@ export default {
   data() {
     return {
       show: false,
+      hovered: false,
     };
   },
   methods: {
@@ -1111,388 +1093,48 @@ export default {
       this.show = !this.show;
     },
   },
-  // watch: {
-  //   activePin: function (oldVal, actualVal) {
-  //     if (oldVal != actualVal) {
-  //       console.log("watch in pin1");
-  //       this.show = !this.show;
-  //     }
-  //   },
-  // },
 };
 </script>
 
 <style>
-.pin-start {
-  position: absolute;
-  cursor: pointer;
-}
-svg {
-  height: intrinsic;
-}
-.additionals {
-  opacity: 0.4;
-  -webkit-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-#e_action {
-  cursor: pointer;
-  width: 100vw;
-}
-#e_action:hover .additionals {
-  opacity: 1;
-}
-.waves {
-  -webkit-transform-origin: center;
-  -ms-transform-origin: center;
-  transform-origin: center;
-  -webkit-transform: scale(0.3) rotate3d(1, 0, 0, 56deg);
-  transform: scale(0.3) rotate3d(1, 0, 0, 56deg);
-  opacity: 0;
-  -webkit-transition: 1s ease-in-out;
-  -o-transition: 1s ease-in-out;
-  transition: 1s ease-in-out;
-}
-.active .additionals {
-  opacity: 1;
-}
-.active .waves {
-  opacity: 1;
-  -webkit-transform: scale(1) rotate3d(1, 0, 0, 56deg);
-  transform: scale(1) rotate3d(1, 0, 0, 56deg);
-}
-
-/* .circle {
-  will-change: transform, opacity;
-  fill: transparent;
-  fill-opacity: 0;
-  stroke-width: 3px;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-name: pulse-from-to;
-  animation-name: pulse-from-to;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-} */
-
-.pulse-enter-active,
-.pulse-leave-active {
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.pulse-enter,
-.pulse-leave-to {
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-name: pulse-reverce;
-  animation-name: pulse-reverce;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
 .active-pin .circle {
   will-change: transform, opacity;
   fill: transparent;
   fill-opacity: 0;
   stroke-width: 3px;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 
-  -webkit-animation-duration: 5s;
   animation-duration: 5s;
-  -webkit-animation-name: pulse;
   animation-name: pulse;
-  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
 .circle1 {
   stroke: url(#paint1);
-  /* -webkit-filter: url(#filter1);
-  filter: url(#filter1); */
   opacity: 0;
 }
 .circle2 {
   stroke: url(#paint2);
-  /* -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-  -webkit-filter: url(#filter2);
-  filter: url(#filter2); */
   opacity: 0;
 }
 .circle3 {
   stroke: url(#paint3);
-  /* -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-  -webkit-filter: url(#filter3);
-  filter: url(#filter3); */
   opacity: 0;
 }
 .circle4 {
   stroke: url(#paint4);
-  /* -webkit-animation-delay: 3s;
-  animation-delay: 3s;
-  -webkit-filter: url(#filter4);
-  filter: url(#filter4); */
   opacity: 0;
 }
 .circle5 {
   stroke: url(#paint5);
-  /* -webkit-animation-delay: 4s;
-  animation-delay: 4s;
-  -webkit-filter: url(#filter5);
-  filter: url(#filter5); */
   opacity: 0;
-}
-
-/* .levitation {
-  -webkit-transition: all 5s ease-in-out;
-  -o-transition: all 5s ease-in-out;
-  transition: all 5s ease-in-out;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-name: float;
-  animation-name: float;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-} */
-
-.active-pin .levitation {
-  -webkit-transition: all 5s ease-in-out;
-  -o-transition: all 5s ease-in-out;
-  transition: all 5s ease-in-out;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-name: float;
-  animation-name: float;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-}
-.levitation1 {
-  -webkit-animation-name: float1;
-  animation-name: float1;
-}
-.levitation2 {
-  -webkit-animation-name: float2;
-  animation-name: float2;
-}
-
-.active .levitation1,
-.active .levitation2,
-.active .levitation {
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-}
-
-@-webkit-keyframes pulse-from-to {
-  0% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  5% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  10% {
-    opacity: 1;
-  }
-  15% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  35% {
-    opacity: 0.6;
-  }
-  45% {
-    opacity: 1;
-  }
-  50% {
-    stroke-width: 10px;
-    opacity: 0.3;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
-  }
-
-  51% {
-    stroke-width: 10px;
-    opacity: 0.3;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
-  55% {
-    opacity: 0.3;
-  }
-  65% {
-    opacity: 0.6;
-  }
-  85% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  90% {
-    opacity: 1;
-  }
-  95% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  100% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes pulse-from-to {
-  0% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  5% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  10% {
-    opacity: 1;
-  }
-  15% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  35% {
-    opacity: 0.6;
-  }
-  45% {
-    opacity: 0.7;
-  }
-  50% {
-    stroke-width: 10px;
-    opacity: 0;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
-  }
-
-  51% {
-    stroke-width: 10px;
-    opacity: 0;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
-  55% {
-    opacity: 0.3;
-    stroke-width: 10px;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
-  65% {
-    opacity: 1;
-  }
-  85% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  90% {
-    opacity: 0.3;
-  }
-  95% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  100% {
-    stroke-width: 3px;
-    opacity: 0;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    stroke-width: 3px;
-    opacity: 0.3;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  30% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  60% {
-    opacity: 0.6;
-  }
-  100% {
-    stroke-width: 10px;
-    opacity: 0;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
-  }
 }
 
 @keyframes pulse {
   0% {
     stroke-width: 3px;
     opacity: 0.3;
-    -webkit-transform: scale(0.3);
     transform: scale(0.3);
-    -webkit-filter: blur(0);
     filter: blur(0);
   }
   30% {
@@ -1502,171 +1144,16 @@ svg {
   60% {
     opacity: 0.6;
   }
-  100% {
+  99% {
     stroke-width: 10px;
     opacity: 0;
-    -webkit-transform: scale(1.8);
     transform: scale(1.8);
-    -webkit-filter: blur(2px);
     filter: blur(2px);
   }
-}
-
-@-webkit-keyframes pulse-reverce {
-  0% {
+  100% {
     stroke-width: 10px;
     opacity: 0;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
-  30% {
-    opacity: 0.6;
-  }
-  70% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  100% {
-    stroke-width: 3px;
-    opacity: 1;
-    -webkit-transform: scale(0.3);
     transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes pulse-reverce {
-  0% {
-    stroke-width: 10px;
-    opacity: 0;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
-  30% {
-    opacity: 0.6;
-  }
-  70% {
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-  100% {
-    stroke-width: 3px;
-    opacity: 1;
-    -webkit-transform: scale(0.3);
-    transform: scale(0.3);
-    -webkit-filter: blur(0);
-    filter: blur(0);
-  }
-}
-
-@-webkit-keyframes float {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  50% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-}
-
-@keyframes float {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  50% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-}
-
-@-webkit-keyframes float1 {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  30% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  70% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-}
-
-@keyframes float1 {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  30% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  70% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-}
-
-@-webkit-keyframes float2 {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  40% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  60% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-}
-
-@keyframes float2 {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-  40% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  60% {
-    -webkit-transform: translatey(-20px);
-    transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
   }
 }
 </style>

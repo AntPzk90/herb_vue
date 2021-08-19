@@ -45,31 +45,31 @@
           @removeActivePin="removeActivePin"
           :activePin="active"
         ></App-pin-start-5>
-        <!-- <App-pin-start-6
+        <App-pin-start-6
           class="pin6"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-6> -->
-        <!-- <App-pin-start-7
+        ></App-pin-start-6>
+        <App-pin-start-7
           class="pin7"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-7> -->
-        <!-- <App-pin-start-8
+        ></App-pin-start-7>
+        <App-pin-start-8
           class="pin8"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-8> -->
-        <!-- <App-pin-start-9
+        ></App-pin-start-8>
+        <App-pin-start-9
           class="pin9"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-9> -->
-        <!-- <App-pin-start-10
+        ></App-pin-start-9>
+        <App-pin-start-10
           class="pin10"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-10> -->
+        ></App-pin-start-10>
       </div>
     </div>
     <nav class="map-nav swiper-container">
@@ -144,11 +144,11 @@ import AppPinStart2 from "@/components/PinStart2.vue";
 import AppPinStart3 from "@/components/PinStart3.vue";
 import AppPinStart4 from "@/components/PinStart4.vue";
 import AppPinStart5 from "@/components/PinStart5.vue";
-// import AppPinStart6 from "@/components/PinStart1.vue";
-// import AppPinStart7 from "@/components/PinStart2.vue";
-// import AppPinStart8 from "@/components/PinStart3.vue";
-// import AppPinStart9 from "@/components/PinStart4.vue";
-// import AppPinStart10 from "@/components/PinStart5.vue";
+import AppPinStart6 from "@/components/PinStart6.vue";
+import AppPinStart7 from "@/components/PinStart7.vue";
+import AppPinStart8 from "@/components/PinStart8.vue";
+import AppPinStart9 from "@/components/PinStart9.vue";
+import AppPinStart10 from "@/components/PinStart10.vue";
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper.min.css";
 
@@ -160,11 +160,11 @@ export default {
     AppPinStart3,
     AppPinStart4,
     AppPinStart5,
-    // AppPinStart6,
-    // AppPinStart7,
-    // AppPinStart8,
-    // AppPinStart9,
-    // AppPinStart10,
+    AppPinStart6,
+    AppPinStart7,
+    AppPinStart8,
+    AppPinStart9,
+    AppPinStart10,
   },
   data() {
     return {
@@ -207,11 +207,11 @@ export default {
         this.active = "pin3";
         this.position3 = true;
       }
-      if (step == 4) {
-        this.active = "pin4";
-        this.position4 = true;
-      }
       if (step == 5) {
+        this.active = "pin4";
+        this.position5 = true;
+      }
+      if (step == 4) {
         this.active = "pin5";
         this.position5 = true;
       }
@@ -237,6 +237,10 @@ export default {
       }
     },
     removeActivePin(pin) {
+      if (this.active === pin) {
+        this.active = null;
+        return false;
+      }
       this.active = pin;
     },
   },
@@ -264,48 +268,48 @@ body {
 }
 
 .pin2 {
-  bottom: 12px;
-  left: 131px;
+  bottom: 85px;
+  left: 224px;
 }
 
 .pin3 {
-  bottom: 129px;
-  left: 274px;
+  bottom: 91px;
+  left: 376px;
 }
 
 .pin4 {
-  bottom: 303px;
-  left: 208px;
+  bottom: 163px;
+  left: 552px;
 }
 
 .pin5 {
-  bottom: 380px;
-  left: 431px;
+  bottom: 85px;
+  left: 641px;
 }
 
 .pin6 {
-  bottom: 174px;
-  left: 420px;
+  bottom: 259px;
+  left: 354px;
 }
 
 .pin7 {
-  bottom: 200px;
-  left: 605px;
+  bottom: 375px;
+  left: 220px;
 }
 
 .pin8 {
-  bottom: 128px;
-  left: 724px;
+  bottom: 415px;
+  left: 271px;
 }
 
 .pin9 {
-  bottom: 403px;
-  left: 242px;
+  bottom: 310px;
+  left: 502px;
 }
 
 .pin10 {
-  bottom: 351px;
-  left: 577px;
+  bottom: 510px;
+  left: 502px;
 }
 
 .ex-va__container {
@@ -456,7 +460,7 @@ body {
 
 .position-5 {
   top: -447px;
-  left: -511px;
+  left: -515px;
 }
 
 .position-6 {
@@ -488,21 +492,162 @@ body {
   top: -19px;
   left: -546px;
 }
-
+.pin-start {
+  position: absolute;
+}
 svg {
   height: intrinsic;
 }
+
+.animations {
+  transform-origin: center;
+  transform: rotate3d(1, 0, 0, 56deg);
+  opacity: 0;
+  transition: 1s ease-in-out;
+}
+.active-pin .animations {
+  opacity: 1;
+  transform: rotate3d(1, 0, 0, 56deg);
+}
+
 .additionals {
   opacity: 0.4;
-  -webkit-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
-#e_action {
+.pin-rect {
   cursor: pointer;
-  width: 100vw;
 }
-#e_action:hover .additionals {
+.additionals.hovered,
+.active-pin .additionals {
   opacity: 1;
+}
+
+.levitation {
+  transition: all 5s ease-in-out;
+  animation-duration: 5s;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.levitation1 {
+  animation-name: float1;
+}
+.levitation2 {
+  animation-name: float2;
+}
+
+.active-pin .levitation1,
+.active-pin .levitation2,
+.active-pin .levitation {
+  animation-play-state: running;
+}
+
+.levitation2:nth-child(2) {
+  animation-timing-function: cubic-bezier(0.05, 0, 0.45, 1);
+}
+.levitation2:nth-child(3) {
+  animation-timing-function: cubic-bezier(0.1, 0, 0.5, 1);
+}
+.levitation2:nth-child(4) {
+  animation-timing-function: cubic-bezier(0.15, 0, 0.55, 1);
+}
+.levitation2:nth-child(5) {
+  animation-timing-function: cubic-bezier(0.2, 0, 0.6, 1);
+}
+.levitation2:nth-child(6) {
+  animation-timing-function: cubic-bezier(0.25, 0, 0.65, 1);
+}
+.levitation2:nth-child(7) {
+  animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1);
+}
+.levitation2:nth-child(8) {
+  animation-timing-function: cubic-bezier(0.35, 0, 0.75, 1);
+}
+.levitation2:nth-child(9) {
+  animation-timing-function: cubic-bezier(0.4, 0, 0.8, 1);
+}
+.shine {
+  transform-origin: 50% 57%;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: shine;
+  stroke: #44ffff;
+  opacity: 0.5;
+}
+
+@keyframes shine {
+  0% {
+    stroke-width: 0px;
+    opacity: 0.6;
+  }
+  50% {
+    stroke-width: 60px;
+    filter: blur(5px);
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    stroke-width: 60px;
+    filter: blur(5px);
+  }
+}
+
+@keyframes shine-big {
+  0% {
+    stroke-width: 0px;
+    opacity: 0.6;
+  }
+  50% {
+    stroke-width: 120px;
+    filter: blur(5px);
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    stroke-width: 120px;
+    filter: blur(5px);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translatey(0px);
+  }
+  30% {
+    transform: translatey(-20px);
+  }
+  70% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translatey(0px);
+  }
+  40% {
+    transform: translatey(-20px);
+  }
+  60% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 </style>
