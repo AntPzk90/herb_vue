@@ -139,16 +139,16 @@
   </div>
 </template>
 <script>
-import AppPinStart1 from "@/components/PinStart1.vue";
-import AppPinStart2 from "@/components/PinStart2.vue";
-import AppPinStart3 from "@/components/PinStart3.vue";
-import AppPinStart4 from "@/components/PinStart4.vue";
-import AppPinStart5 from "@/components/PinStart5.vue";
-import AppPinStart6 from "@/components/PinStart6.vue";
-import AppPinStart7 from "@/components/PinStart7.vue";
-import AppPinStart8 from "@/components/PinStart8.vue";
-import AppPinStart9 from "@/components/PinStart9.vue";
-import AppPinStart10 from "@/components/PinStart10.vue";
+import AppPinStart1 from "@/components/map1/PinStart1.vue";
+import AppPinStart2 from "@/components/map1/PinStart2.vue";
+import AppPinStart3 from "@/components/map1/PinStart3.vue";
+import AppPinStart4 from "@/components/map1/PinStart4.vue";
+import AppPinStart5 from "@/components/map1/PinStart5.vue";
+import AppPinStart6 from "@/components/map1/PinStart6.vue";
+import AppPinStart7 from "@/components/map1/PinStart7.vue";
+import AppPinStart8 from "@/components/map1/PinStart8.vue";
+import AppPinStart9 from "@/components/map1/PinStart9.vue";
+import AppPinStart10 from "@/components/map1/PinStart10.vue";
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper.min.css";
 
@@ -438,59 +438,113 @@ body {
   left: 0;
 }
 
-.position-1 {
-  top: -432px;
-  left: -44px;
+@media screen and (max-width: 576px) {
+  .position-1 {
+    top: -432px;
+    left: -7px;
+  }
+
+  .position-2 {
+    top: -386px;
+    left: -174px;
+  }
+
+  .position-3 {
+    top: -397px;
+    left: -318px;
+  }
+
+  .position-4 {
+    top: -376px;
+    left: -570px;
+  }
+
+  .position-5 {
+    top: -447px;
+    left: -515px;
+  }
+
+  .position-6 {
+    top: -269px;
+    left: -318px;
+  }
+
+  .position-6 {
+    top: -286px;
+    left: -309px;
+  }
+
+  .position-7 {
+    top: -168px;
+    left: -138px;
+  }
+
+  .position-8 {
+    top: -92px;
+    left: -249px;
+  }
+
+  .position-9 {
+    top: -222px;
+    left: -470px;
+  }
+
+  .position-10 {
+    top: -19px;
+    left: -476px;
+  }
 }
 
-.position-2 {
-  top: -386px;
-  left: -245px;
-}
+@media screen and (max-width: 360px) {
+  .position-1 {
+    top: -432px;
+    left: -44px;
+  }
 
-.position-3 {
-  top: -397px;
-  left: -385px;
-}
+  .position-2 {
+    top: -386px;
+    left: -245px;
+  }
 
-.position-4 {
-  top: -376px;
-  left: -570px;
-}
+  .position-3 {
+    top: -397px;
+    left: -385px;
+  }
 
-.position-5 {
-  top: -447px;
-  left: -515px;
-}
+  .position-4 {
+    top: -376px;
+    left: -570px;
+  }
 
-.position-6 {
-  top: -269px;
-  left: -391px;
-}
+  .position-5 {
+    top: -447px;
+    left: -515px;
+  }
 
-.position-6 {
-  top: -286px;
-  left: -309px;
-}
+  .position-6 {
+    top: -286px;
+    left: -309px;
+  }
 
-.position-7 {
-  top: -168px;
-  left: -203px;
-}
+  .position-7 {
+    top: -168px;
+    left: -203px;
+  }
 
-.position-8 {
-  top: -92px;
-  left: -320px;
-}
+  .position-8 {
+    top: -92px;
+    left: -320px;
+  }
 
-.position-9 {
-  top: -222px;
-  left: -540px;
-}
+  .position-9 {
+    top: -222px;
+    left: -540px;
+  }
 
-.position-10 {
-  top: -19px;
-  left: -546px;
+  .position-10 {
+    top: -19px;
+    left: -546px;
+  }
 }
 .pin-start {
   position: absolute;
