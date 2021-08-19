@@ -5,7 +5,7 @@
         id="ex-va__action"
         class="active ex-va__action"
         :style="{
-          'background-image': 'url(' + require('@/assets/map@2x.jpg') + ')',
+          'background-image': 'url(' + require('@/assets/map-en.jpg') + ')',
         }"
         :class="[
           { 'position-1': position1 },
@@ -25,11 +25,11 @@
           @removeActivePin="removeActivePin"
           :activePin="active"
         ></App-pin-start-1>
-        <App-pin-start-2
+        <!-- <App-pin-start-2
           class="pin2"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-2>
+        ></App-pin-start-2> -->
         <App-pin-start-3
           class="pin3"
           @removeActivePin="removeActivePin"
@@ -45,11 +45,11 @@
           @removeActivePin="removeActivePin"
           :activePin="active"
         ></App-pin-start-5>
-        <App-pin-start-6
+        <!-- <App-pin-start-6
           class="pin6"
           @removeActivePin="removeActivePin"
           :activePin="active"
-        ></App-pin-start-6>
+        ></App-pin-start-6> -->
         <App-pin-start-7
           class="pin7"
           @removeActivePin="removeActivePin"
@@ -80,14 +80,9 @@
             <p class="map-btn-txt">Старт</p>
           </button>
         </li>
+
         <li class="map-item swiper-slide">
-          <button @click="changePosition(2)" class="map-btn map-btn--hn-grow">
-            <img class="map-btn-img" src="@/assets/map-btn-hn-grow.png" />
-            <p class="map-btn-txt">HN Grow</p>
-          </button>
-        </li>
-        <li class="map-item swiper-slide">
-          <button @click="changePosition(3)" class="map-btn map-btn--present-1">
+          <button @click="changePosition(2)" class="map-btn map-btn--present-1">
             <img class="map-btn-img" src="@/assets/map-btn-present-1.png" />
             <p class="map-btn-txt">Подарок</p>
           </button>
@@ -106,20 +101,14 @@
         </li>
         <li class="map-item swiper-slide">
           <button @click="changePosition(6)" class="map-btn map-btn--marketing">
-            <img class="map-btn-img" src="@/assets/map-btn-marketing.png" />
-            <p class="map-btn-txt">Отдел<br />маркетинга</p>
+            <img class="map-btn-img" src="@/assets/map-btn-it.png" />
+            <p class="map-btn-txt">Отдел<br />информационной<br />поддержки</p>
           </button>
         </li>
         <li class="map-item swiper-slide">
           <button @click="changePosition(7)" class="map-btn map-btn--present-3">
             <img class="map-btn-img" src="@/assets/map-btn-present.png" />
             <p class="map-btn-txt">Подарок</p>
-          </button>
-        </li>
-        <li class="map-item swiper-slide">
-          <button @click="changePosition(8)" class="map-btn map-btn--it">
-            <img class="map-btn-img" src="@/assets/map-btn-it.png" />
-            <p class="map-btn-txt">Отдел<br />информационной<br />поддержки</p>
           </button>
         </li>
         <li class="map-item swiper-slide">
@@ -140,11 +129,11 @@
 </template>
 <script>
 import AppPinStart1 from "@/components/map1/PinStart1.vue";
-import AppPinStart2 from "@/components/map1/PinStart2.vue";
+// import AppPinStart2 from "@/components/map1/PinStart2.vue";
 import AppPinStart3 from "@/components/map1/PinStart3.vue";
 import AppPinStart4 from "@/components/map1/PinStart4.vue";
 import AppPinStart5 from "@/components/map1/PinStart5.vue";
-import AppPinStart6 from "@/components/map1/PinStart6.vue";
+// import AppPinStart6 from "@/components/map1/PinStart6.vue";
 import AppPinStart7 from "@/components/map1/PinStart7.vue";
 import AppPinStart8 from "@/components/map1/PinStart8.vue";
 import AppPinStart9 from "@/components/map1/PinStart9.vue";
@@ -156,11 +145,11 @@ export default {
   name: "AppMainEn",
   components: {
     AppPinStart1,
-    AppPinStart2,
+    // AppPinStart2,
     AppPinStart3,
     AppPinStart4,
     AppPinStart5,
-    AppPinStart6,
+    // AppPinStart6,
     AppPinStart7,
     AppPinStart8,
     AppPinStart9,
@@ -267,24 +256,19 @@ body {
   left: -67px;
 }
 
-.pin2 {
-  bottom: 85px;
-  left: 224px;
-}
-
 .pin3 {
-  bottom: 91px;
-  left: 376px;
+  bottom: 97px;
+  left: 237px;
 }
 
 .pin4 {
-  bottom: 163px;
-  left: 552px;
+  bottom: 98px;
+  left: 670px;
 }
 
 .pin5 {
-  bottom: 85px;
-  left: 641px;
+  bottom: 150px;
+  left: 521px;
 }
 
 .pin6 {
@@ -293,13 +277,13 @@ body {
 }
 
 .pin7 {
-  bottom: 375px;
-  left: 220px;
+  bottom: 445px;
+  left: 343px;
 }
 
 .pin8 {
-  bottom: 415px;
-  left: 271px;
+  bottom: 251px;
+  left: 339px;
 }
 
 .pin9 {
